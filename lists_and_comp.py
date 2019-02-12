@@ -147,3 +147,18 @@ print(deck)
 # list concatenation
 
 print(values + suits)
+
+# strings using indices
+first = "aaron"
+last = "lee"
+print(first + " " + last)
+print(first[0])
+print(len(first))
+if "l" in last:
+    print("Yup")
+
+for char in first:
+    print(char)
+
+
+

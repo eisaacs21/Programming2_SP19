@@ -16,7 +16,7 @@ PROBLEM 2 (2pts)
 You get 8 out of 9 on a quiz.
 Print 8/9 using {}.format() so that it appears as 89%
 '''
-
+print({8/9}, "%")
 
 '''
 PROBLEM 3 (3pts)
@@ -39,7 +39,10 @@ Make sure the print formatting works for any integer from zero to nine million.
 Do not use any concatenation in your code (no plus signs). 
 You should only have two double quotes in each print statement.
 '''
-
+score = 41237
+highscore = 1023407
+print("Score:      " + str(score) )
+print("High score: " + str(highscore) )
 
 '''
 PROBLEM 4 (5 pts) 

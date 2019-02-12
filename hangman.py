@@ -2,7 +2,7 @@
 Make a text based version of hangman (25pts)
 Use the sample run as an example.  Try to make it as close as possible to the example. (or better)
 '''
-
+import random
 # PSEUDOCODE
 # make a word list for your game
 # grab a random word from your list and store it as a variable
@@ -19,6 +19,10 @@ Use the sample run as an example.  Try to make it as close as possible to the ex
 
 
 # Feel free to use this list of ascii art for your game
+
+
+
+
 
 HANGMANPICS = ['''
   +---+
@@ -70,6 +74,56 @@ HANGMANPICS = ['''
  / \  |
       |
 =========''']
+
+words = ["France", "Russia", "Italy", "Germany", "India", "Japan", "China", "Hungary", "Syria"]
+words = [x.upper() for x in words]
+
+your_word = words[random.randrange(len(words))]
+letter = your_word[0:]
+for letter in your_word:
+    print("_", end=" ")
+
+
+
+
+print(HANGMANPICS[0])
+print("welcome to hangman")
+
+used_letters = []
+
+done = False
+correct_answers = 0
+incorrect_answers = 0
+while not done:
+
+    letter = input("Choose a Letter").upper()
+    if letter in your_word:
+        print("Nice")
+        correct_answers += 1
+        used_letters += letter
+    if letter not in your_word:
+        print("Nope")
+        print(HANGMANPICS[1])
+        incorrect_answers += 1
+    if incorrect_answers == 6:
+        print("YOU LOSE")
+        #play_again = input("Wanna Play Again?: ").upper()
+        #if play_again == "Yes":
+        done = True
+
+
+
+    if correct_answers == len(your_word):
+        done = True
+
+
+
+
+
+
+
+
+
 
 
 
