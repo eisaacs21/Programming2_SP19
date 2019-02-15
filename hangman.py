@@ -87,7 +87,7 @@ for letter in your_word:
 
 
 print(HANGMANPICS[0])
-print("welcome to hangman")
+print("welcome to hangman: COUNTRY EDITION")
 
 used_letters = []
 
@@ -96,25 +96,28 @@ correct_answers = 0
 incorrect_answers = 0
 while not done:
 
-    letter = input("Choose a Letter").upper()
+    letter = input("Choose a Letter: ").upper()
+    if letter in used_letters:
+        print("Bruh you already did that")
     if letter in your_word:
         print("Nice")
         correct_answers += 1
-        used_letters += letter
+
     if letter not in your_word:
         print("Nope")
-        print(HANGMANPICS[1])
+
         incorrect_answers += 1
+        print(HANGMANPICS[incorrect_answers])
+
+        used_letters.append(letter)
     if incorrect_answers == 6:
         print("YOU LOSE")
         #play_again = input("Wanna Play Again?: ").upper()
         #if play_again == "Yes":
         done = True
-
-
-
     if correct_answers == len(your_word):
         done = True
+
 
 
 
