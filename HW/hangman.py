@@ -75,7 +75,7 @@ HANGMANPICS = ['''
       |
 =========''']
 
-words = ["France", "Russia", "Italy", "Germany", "India", "Japan", "China", "Hungary", "Syria"]
+words = ["France", "Spain", "Italy", "Germany", "India", "Japan", "China", "Hungary", "Syria"]
 words = [x.upper() for x in words]
 
 your_word = words[random.randrange(len(words))]
@@ -116,6 +116,7 @@ while not done:
         #if play_again == "Yes":
         done = True
     if correct_answers == len(your_word):
+        print("YOU WIN")
         done = True
 
 
