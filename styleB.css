@@ -1,0 +1,21 @@
+/**/
+
+p {
+    background-color: lightblue;
+}
+
+ul {
+    color: red;
+}
+
+li {
+    border: 2px solid black;
+}
+
+.bold {
+    font-weight: bold
+}
+
+ul li.bold {
+    color: yellow;
+}

@@ -1,5 +1,6 @@
 # https://data.cityofchicago.org/Environment-Sustainable-Development/Chicago-Energy-Benchmarking/xq83-jr8c
-
+import matplotlib.pyplot as plt
+import csv
 '''
 Energy Efficiency of Chicago Schools (35pts)
 Chicago requires that all buildings over 50000 square feet in the city comply with energy benchmark reporting each year.
@@ -22,3 +23,53 @@ Challenge (for fun if you have time... not required):
 - Make schools in bottom 10 percent GHG Intesity show in red.
 - Add colleges and universities (use a different marker type)
 '''
+plt.figure(1)
+with open('Notes\data\Chicago_Energy_Benchmarking.csv') as f:
+    reader = csv.reader(f)
+    data = list(reader)
+month_numbers = [x for x in range(12)]  # month numbers on x
+
+library_names = [x[0] for x in data[1:]] # month names on x
+print(library_names)
+
+header = data.pop(0)
+#print(header)
+
+month_data = [x[1:-1] for x in data]  # Jan to Dec data for all libraries
+print(month_data[0])
+
+plt.figure(3, tight_layout=True, figsize=(12, 8))  # tight layout allows data to fit axes
+'''
+library_data = [int(x) for x in month_data[library_names.index('')]]
+plt.bar(month_numbers, library_data)
+plt.title("Energy Use")
+plt.xlabel("Month")
+plt.ylabel("Use")
+'''
+month_names = header[1:-1]
+print(month_names)
+plt.xticks(month_numbers, month_names, rotation=90, fontsize=8)  # replace number with labels
+
+
+# Make a graph of all library attendance in Chicago by month
+plt.figure(4, tight_layout=True, figsize=(6, 4), facecolor='lightblue')
+
+print(month_data)
+
+all_lib_months = [0 for x in range(12)]
+print(all_lib_months)
+
+for library in month_data:
+    for i in range(12):
+        all_lib_months[i] += int(library[i])
+
+print(all_lib_months)
+
+plt.bar(month_numbers, all_lib_months, color='red')
+plt.xticks(month_numbers, month_names, rotation=90)
+plt.xlabel("Months")
+plt.ylabel("Use")
+plt.title("Energy Use (2018)")
+
+
+plt.show()
